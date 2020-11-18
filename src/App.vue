@@ -1,28 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-card class="overflow-hidden">
+      <!------------------>
+      <!------ Menu ------>
+      <!------------------>
+      <Menu />
+      <!------------------>
+      <!------ Body ------>
+      <!------------------>
+      <v-main>
+        <v-container>
+          <router-view transition="slide-x-transition" />
+        </v-container>
+      </v-main>
+      <!-------------------------------->
+      <!------ Snakbar (Toaster) ------->
+      <!-------------------------------->
+      <Notification />
+    </v-card>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Menu from "@/components/Menu";
+import Notification from "@/components/Notification";
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: { Menu, Notification },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
